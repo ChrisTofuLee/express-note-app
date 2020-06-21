@@ -2,7 +2,7 @@
 
 This project looks at using Express to set up a server for a note taker web application hosted on Heroku. The application allows the user to type up notes with a title and contents as well as being able to delete individual notes selected. It makes use of GET, POST, and DELETE to allow the server script file to communicate between the front end note page with the database set up.
 
-Link to the Notes Taker app: ![https://stark-basin-90150.herokuapp.com/](https://stark-basin-90150.herokuapp.com/)
+Link to the Notes Taker app: ![Notes Taker](https://stark-basin-90150.herokuapp.com/)
 
 ## Usage
 
@@ -12,8 +12,8 @@ Run the application by entering the site, and clicking 'Get Started'. When direc
 
 Homepage:
 
-![Homepage](./src/example/home.png)
+![Homepage](./src/example/Home.png)
 
 Notes page:
 
-![notes page](./src/example/notes.png)
+![notes page](./src/example/Notes.png)
