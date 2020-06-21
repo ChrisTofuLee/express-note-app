@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const { promisify } = require("util");
 const readFileAsync = promisify(fs.readFile);
+const { v4: uuidv4 } = require("uuid");
 
 const writeFileAsync = promisify(fs.writeFile);
 const PORT = process.env.PORT || 3000;
@@ -64,8 +65,7 @@ const getNotes = async (req, res) => {
   res.json(notes);
 };
 const addId = (data) => {
-  let id = data.length;
-  id++;
+  let id = uuidv4();
   return id;
 };
 //create note then add it onto the notes page
