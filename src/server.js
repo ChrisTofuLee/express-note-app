@@ -91,10 +91,14 @@ const deleteNotes = async (req, res) => {
   const notesData = await readFileAsync(notesFilePath, "utf-8");
   const parsedNotes = JSON.parse(notesData);
   //add function to delete notes by id number
-  parsedNotes.splice(parsedNotes[req.params.id], 1);
+  const removeValue = parsedNotes
+    .map((item) => {
+      return item.id;
+    })
+    .indexOf(req.params.id);
+  parsedNotes.splice(removeValue, 1);
   await writeFileAsync(notesFilePath, JSON.stringify(parsedNotes));
   res.sendFile(filePath);
-  //or should it be serveNotesFile(req, res)
 };
 
 // ROUTES
@@ -112,3 +116,8 @@ app.delete("/api/notes/:id", deleteNotes); // delete  selected notes
 app.listen(PORT, () => {
   console.log(`Server listening on: http://localhost:${PORT}`);
 });
+
+// get index of object with id using req.params.id from delete route
+// const removeValue = array.map((item) => { return item.id; }).indexOf(req.params.id);
+// remove object
+// array.splice(removeValue, 1);
