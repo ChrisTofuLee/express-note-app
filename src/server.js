@@ -23,8 +23,6 @@ app.set({
 
 const cssFile = (req, res) => {
   const filePath = path.join(__dirname, "/public/css/styles.css");
-  console.log(req.body);
-  console.log(filePath);
   res.sendFile(filePath);
 };
 const jsFile = (req, res) => {
@@ -105,10 +103,10 @@ const deleteNotes = async (req, res) => {
 app.get("/", serveIndexFile); // load homepage
 app.get("/notes", serveNotesFile); //load notes
 // app.get("/notes/:id", notesById);
-app.get("/public", cssFile);
-app.get("/public", jsFile);
-// app.get("public/css/styles.css", cssFile);
-// app.get("public/js/index.js", jsFile);
+// app.get("/public", cssFile);
+// app.get("/public", jsFile);
+app.get("public/css/styles.css", cssFile);
+app.get("public/js/index.js", jsFile);
 app.get("/api/notes", getNotes); //read db.json file
 app.post("/api/notes", createNotes); //receive new note and push to db.json
 app.delete("/api/notes/:id", deleteNotes); // delete  selected notes
